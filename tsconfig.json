@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es5",		// 컴파일 후 생성될 파일의 ECMAScript 버전
+    "allowJs": true,
+    "module": "commonjs",	// 컴파일 후 생성될 파일이 사용하는 모듈 버전
+    "outDir": "dist/",		// 파일이 생성될 폴더
+    "esModuleInterop": true, // 'require'와 'import' 호환
+    "baseUrl": "src"
+  },
+  "include": ["src"]
+}

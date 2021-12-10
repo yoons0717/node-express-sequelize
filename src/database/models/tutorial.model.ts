@@ -9,14 +9,13 @@ export interface TutorialAttributes {
   updatedAt?: Date;
 }
 export interface TutorialInterface extends Model<TutorialAttributes>, TutorialAttributes {}
-export class User extends Model<TutorialInterface, TutorialAttributes> {}
 
 export type tutorialStatic = typeof Model & {
   new (values?: object, options?: BuildOptions): TutorialInterface;
 };
 
 export function tutorialFactory(sequelize: Sequelize): tutorialStatic {
-  return <tutorialStatic>sequelize.define('tutorial', {
+  return sequelize.define('tutorial', {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,

@@ -19,12 +19,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // RESTful API route for DB
-app.use('/', require('./api/router/router.ts'));
+app.use('/', require('./router/tutorial.router'));
 
 // Default route for server status
 app.get('/', (req, res) => {
   res.json({ message: `Server is running on port ${PORT}` });
 });
+
 // Set listen port for request
 app.listen(PORT, async () => {
   console.log(`Server is running on port ${PORT}`);

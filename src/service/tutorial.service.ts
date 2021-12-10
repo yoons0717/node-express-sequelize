@@ -1,4 +1,4 @@
-import { Tutorial } from '../../database/models/index';
+import { Tutorial } from '../database/models/index';
 import { TutorialAttributes } from 'database/models/tutorial.model';
 import { Op } from 'sequelize';
 // Create tutorial
@@ -101,35 +101,6 @@ exports.delete = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message: 'Could not delete Tutorial with id=' + id,
-      });
-    });
-};
-
-// Delete all Tutorials from the database.
-exports.deleteAll = (req, res) => {
-  Tutorial.destroy({
-    where: {},
-    truncate: false,
-  })
-    .then((nums) => {
-      res.send({ message: `${nums} Tutorials were deleted successfully!` });
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || 'Some error occurred while removing all tutorials.',
-      });
-    });
-};
-
-// find all published Tutorial
-exports.findAllPublished = (req, res) => {
-  Tutorial.findAll({ where: { published: true } })
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving tutorials.',
       });
     });
 };
